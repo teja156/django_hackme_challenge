@@ -1,0 +1,23 @@
+<html>
+<head>
+	<title>Register</title>
+
+</head>
+
+<body>
+	<form method="POST" action="{% url 'process_registration' %}">
+		{% csrf_token %}
+		Email : 
+		<input type="Email" name="email"> <br>
+		Username:
+		<input type="text" name="uname"> <br>
+		Password:
+		<input type="password" name="passwd"> <br>
+
+		<input type="Submit" value="Register">
+
+	</form>
+
+</body>
+
+</html>

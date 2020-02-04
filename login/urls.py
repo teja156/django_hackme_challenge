@@ -21,4 +21,5 @@ urlpatterns = [
     path('', login_views.login_screen,name="login"),
     path('authenticate_user', login_views.authenticate_user,name="authenticate_user"),
     path('dashboard', login_views.dashboard,name="dashboard"),
+    path('logout', login_views.logout_view,name="logout"),
 ]

@@ -1,31 +1,38 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
+from django.contrib.auth.forms import UserCreationForm
 
 #Create your views here.
 
 def register(request):
-	return render(request,'register/register.html')
+
+	if (not(request.user.is_authenticated)):
+		form = UserCreationForm
+		return render(request,'register/register.html')
+	else:
+		return redirect('dashboard')
 
 def process_registration(request):
 	if request.method == "POST":
-		uname = request.POST['uname']
-		passwd = request.POST['passwd']
-		email = request.POST['email']
+		form = UserCreationForm(request.POST)
+		if(form.is_valid()):
+			uname = form.cleaned_data['username']
+			passwd = form.cleaned_data['password1']
+			user = User.objects.create_user(username=uname, password= passwd)
 
-		user = User.objects.create_user(uname, email, passwd)
 
+			return HttpResponse("<h1>Registered Succesfully!.<a href='/login'>Login here</a></h1>")
 
-		if user is not None:
-		    # A backend authenticated the credentials
-		    return HttpResponse("<h1>Registered Succesfully!.<a href='/'>Login here</a></h1>")
 		else:
-		    # No backend authenticated the credentials
-		    return HttpResponse("Couldn't register!")
+			return render(request,'register/register.html',context={'err_msg':'Failed to register. Either the username already exists or you are not following the rules for registration fields.'})
 
 	else:
 		return HttpResponse("<h1>Only Post method allowed!</h1>")
+
+
+
 
 
 

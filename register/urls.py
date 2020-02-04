@@ -18,6 +18,6 @@ from django.urls import path,include
 from . import views as signup_view
 
 urlpatterns = [
-    path('', signup_view.register),
+    path('', signup_view.register,name='registration_screen'),
     path('register_user/', signup_view.process_registration,name='process_registration'),
 ]

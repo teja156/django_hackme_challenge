@@ -5,18 +5,24 @@
 </head>
 
 <body>
+	<center>
 	<form method="POST" action="{% url 'authenticate_user' %}">
 		{% csrf_token %}
 		
 		Username:
-		<input type="text" name="uname"> <br>
+		<input type="text" name="uname"> <br><br>
 		Password:
 		<input type="password" name="passwd"> <br>
 
-		<input type="Submit" value="Register">
+		<p class="err" style="color:red">{{err_msg}}</p>
+
+		<input type="Submit" value="Login">
 
 	</form>
 
+	<p> If you want to register, <a href="{% url 'registration_screen' %}">Click here </a> </p>
+
+	</center>
 </body>
 
 </html>

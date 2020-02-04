@@ -5,18 +5,33 @@
 </head>
 
 <body>
+	<center>
+		
+
+	
 	<form method="POST" action="{% url 'process_registration' %}">
 		{% csrf_token %}
-		Email : 
-		<input type="Email" name="email"> <br>
+		
 		Username:
-		<input type="text" name="uname"> <br>
+		<input type="text" name="username"> <br>
+		<p>Username can contain letters, digits, and special charcs</p> <br><br>
 		Password:
-		<input type="password" name="passwd"> <br>
+		<input type="password" name="password1"> <br>
+		<p>Password must be atleast 8 chars long. Can't be a commonly used password. Can't be eniterly numeric </p><br><br>
+
+		Confirm Password : 
+		<input type="password" name="password2"> <br>
+		<p>Enter same password again for verification. </p><br><br>
+
+		<p style="color:red">{{err_msg}}</p>
 
 		<input type="Submit" value="Register">
 
 	</form>
+
+	<p> If you already have an account, <a href="/login">Login here </a> </p>
+
+	</center>
 
 </body>
 

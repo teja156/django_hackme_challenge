@@ -94,7 +94,7 @@ def submit_key(request):
 			request.session['cracked'] = '1'
 			return redirect(get_featured)
 		else:
-			return redirect(request,'app/submitkey.html',context={'err_msg' : 'Wrong key'})
+			return render(request,'app/submitkey.html',context={'err_msg' : 'Wrong key'})
 
 	else:
 		return HttpResponse("Only POST requests allowed on this page.")

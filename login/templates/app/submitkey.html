@@ -1,0 +1,23 @@
+<html>
+
+<head>
+	<title>Submit the key</title>
+
+</head>
+<body>
+	<center>
+		<h2>Submit your key : </h2>
+		<h3>No BruteForcing allowed.</h3> <br>
+
+		<form method="POST" action = "{% url 'submit_key' %}">
+			{% csrf_token %}
+			<input type="text" name="secret_key"> <br>
+			<input type="Submit">
+		</form>                             
+
+		<p style="color:red">{{err_msg}}</p>
+	</center>
+
+</body>
+
+</html>

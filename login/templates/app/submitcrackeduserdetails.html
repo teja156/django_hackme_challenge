@@ -1,0 +1,25 @@
+<html>
+
+<head>
+<title>Congo!You have solved the challenge!</title>
+
+</head>
+<body>
+	<center>
+		<h2 style="color:green">Congo!You have solved the challenge!</h2>
+		<h3>Enter your name and profile link below, so that I can feature you in the list of people who cracked the challenge.</h3> <br>
+
+		<form method="POST" action="{% url 'feature_user' %}">
+			{% csrf_token %}
+			Enter your name : <br>
+			<input type="text" name="name"> <br><br>
+			Enter your Profile link (FB or insta or github or linkedin or twitter) : <br>
+			<input type="text" name="profile"> <br><br>
+			<input type="submit">
+		</form>
+
+	</center>
+
+</body>
+
+</html>

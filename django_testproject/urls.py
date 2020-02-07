@@ -24,5 +24,11 @@ urlpatterns = [
     path('login/', include('login.urls')),
     path('', login_view.show_home,name='home'),
     path('app/', login_view.show_app_screen,name='app'),
+    path('cracked/get_featured', login_view.feature_user,name='feature_user'),
+    path('submitkey', login_view.submit_key_screen,name="submit_key_screen"),
+    path('submitkeyvalue', login_view.submit_key,name="submit_key"),
+    path('getfeatured', login_view.get_featured,name="get_featured"),
+    path('solved_by', login_view.solved_by,name="solved_by"),
+
     
 ]

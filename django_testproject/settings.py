@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'register.apps.RegisterConfig',
     'login.apps.LoginConfig',
-]
+    
+    ]
+    
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -68,6 +70,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'django_testproject.wsgi.application'
 
@@ -123,6 +126,18 @@ STATIC_URL = '/static/'
 
 
 #SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies'
-SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
+#SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
 
 LOGIN_URL = "/login"
+
+
+'''
+#DJANGO DEFENDER
+DEFENDER_LOGIN_FAILURE_LIMIT = 2
+DEFENDER_COOLOFF_TIME = 500
+DEFENDER_LOCKOUT_TEMPLATE = 'login/templates/app/lockout.html'
+DEFENDER_STORE_ACCESS_ATTEMPTS = False
+DEFENDER_USERNAME_FORM_FIELD = 'uname'
+DEFENDER_GET_USERNAME_FROM_REQUEST_PATH = 'login.views.authenticate_user'
+
+'''

@@ -22,4 +22,5 @@ urlpatterns = [
     path('authenticate_user', login_views.authenticate_user,name="authenticate_user"),
     path('dashboard', login_views.dashboard,name="dashboard"),
     path('logout', login_views.logout_view,name="logout"),
+    path('submitkey', login_views.submit_key,name="submit_key"),
 ]

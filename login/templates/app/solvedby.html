@@ -1,0 +1,34 @@
+{% load static %}
+<html>
+
+<head>
+
+<title>Solved By</title>
+
+<link rel="stylesheet" href="{% static 'css/table.css' %}">
+
+</head>
+<body>
+	
+	<center>
+		<h2 style="color:green">The challenge is solved by these people so far : </h2>
+		
+		<table>
+			<tr>
+				<th>Name </th>
+				<th>Solved on </th>
+			</tr>
+			{% for user in users %}
+			<tr>
+				<td>{{ user.name }}</td>
+				<td>{{ user.solved_on }}</td>
+			</tr>
+
+			{% endfor %}
+		</table>
+
+	</center>
+
+</body>
+
+</html>

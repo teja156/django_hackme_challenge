@@ -29,10 +29,14 @@
 
             <li>The webapp has two functionalities : register and login. First, the user can register for an account, and then he/she can login to their account.</li>
         
-            <li>If you captured the flag (secret key), submit it <a href="/submitkey">here.</a></li>
+            <li>If you captured the flag (secret key), submit it <a href="/submitkey">here.</a> (You need to be logged in first)</li>
         
         </ul>
         
+        <br>
+        {% if solved %}
+        <p style="color:green">Challenge first solved by {{solved.name}} on {{solved.solved_on}}. <a href="/solved_by">View list</a></p>
+        {% endif %}
         <br>
 
         <center>

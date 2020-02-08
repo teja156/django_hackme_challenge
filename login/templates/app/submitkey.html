@@ -2,6 +2,7 @@
 
 <head>
 	<title>Submit the key</title>
+	<script src='https://www.google.com/recaptcha/api.js'></script>
 
 </head>
 <body>
@@ -12,12 +13,14 @@
 		<form method="POST" action = "{% url 'submit_key' %}">
 			{% csrf_token %}
 			<input type="text" name="secret_key"> <br>
-			<input type="Submit">
+			<input type="Submit" value="submit">
+
+			<div class="g-recaptcha" data-sitekey="6Ldu6dYUAAAAAFYF3W4XcLlWlFfLB8H-RR_EAxXN"></div>
 		</form>                             
 
 		<p style="color:red">{{err_msg}}</p>
 	</center>
-
+	
 </body>
 
 </html>

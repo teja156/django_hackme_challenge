@@ -20,7 +20,7 @@
 			</tr>
 			{% for user in users %}
 			<tr>
-				<td>{{ user.name }}</td>
+				<td><a href="{{user.profile_link}}">{{ user.name }}</a></td>
 				<td>{{ user.solved_on }}</td>
 			</tr>
 

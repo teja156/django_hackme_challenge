@@ -13,10 +13,12 @@
 			{% csrf_token %}
 			Enter your name : <br>
 			<input type="text" name="name"> <br><br>
-			Enter your Profile link (FB or insta or github or linkedin or twitter) : <br>
+			Enter your Profile link (FB or insta or github) : <br>
 			<input type="text" name="profile"> <br><br>
-			<input type="submit">
+			<input type="submit" value="Submit">
 		</form>
+
+		<p style="color:red">{{err_msg}}</p>
 
 	</center>
 

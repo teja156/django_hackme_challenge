@@ -39,8 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'register.apps.RegisterConfig',
     'login.apps.LoginConfig',
-    'defender',
-
+    
     ]
     
 
@@ -138,11 +137,17 @@ LOGIN_URL = "/login"
 
 
 #DJANGO DEFENDER
+'''
 DEFENDER_LOGIN_FAILURE_LIMIT = 2
 DEFENDER_COOLOFF_TIME = 500
 DEFENDER_LOCKOUT_TEMPLATE = 'login/templates/app/lockout.html'
 DEFENDER_STORE_ACCESS_ATTEMPTS = False
 DEFENDER_USERNAME_FORM_FIELD = 'uname'
-#DEFENDER_GET_USERNAME_FROM_REQUEST_PATH = 'login.views.authenticate_user'
+#DEFENDER_GET_USERNAME_FROM_REQUEST_PATH = login_views.authenticate_user
+DEFENDER_DISABLE_IP_LOCKOUT = True
+'''
+
+
+GOOGLE_RECAPTCHA_SECRET_KEY = '6Ldu6dYUAAAAAIf0yefSxs0M66siYN__63Fvqt7y'
 
 

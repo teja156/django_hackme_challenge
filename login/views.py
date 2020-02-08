@@ -145,6 +145,12 @@ def feature_user(request):
 
         if(profile==""):
         	return render(request,'app/submitcrackeduserdetails.html',context={'err_msg':'Invalid profile link'})
+
+        #Check if user already solved
+        already_solved = CrackedUsers.objects.filter(username=request.user)
+        if(already_solved):
+        	return render(request,'app/submitcrackeduserdetails.html',context={'err_msg':'You already solved the challenge'})
+
         cu = CrackedUsers(name=name, profile_link=profile,username=username)
         cu.save()
 

@@ -143,15 +143,20 @@ def feature_user(request):
 
         profile = check_profile_url(profile)
 
-        if(profile==""):
-        	return render(request,'app/submitcrackeduserdetails.html',context={'err_msg':'Invalid profile link'})
+        if (profile == ""):
+            return render(request,
+                          'app/submitcrackeduserdetails.html',
+                          context={'err_msg': 'Invalid profile link'})
 
         #Check if user already solved
         already_solved = CrackedUsers.objects.filter(username=request.user)
-        if(already_solved):
-        	return render(request,'app/submitcrackeduserdetails.html',context={'err_msg':'You already solved the challenge'})
+        if (already_solved):
+            return render(
+                request,
+                'app/submitcrackeduserdetails.html',
+                context={'err_msg': 'You already solved the challenge'})
 
-        cu = CrackedUsers(name=name, profile_link=profile,username=username)
+        cu = CrackedUsers(name=name, profile_link=profile, username=username)
         cu.save()
 
         return redirect(solved_by)
@@ -163,7 +168,10 @@ def feature_user(request):
 
 @login_required
 def get_featured(request):
-    return render(request, 'app/submitcrackeduserdetails.html')
+    if (request.session['cracked'] == '1'):
+        return render(request, 'app/submitcrackeduserdetails.html')
+    else:
+        return HttpResponse("You did not solve the challenge.")
 
 
 def solved_by(request):
@@ -171,8 +179,11 @@ def solved_by(request):
                   'app/solvedby.html',
                   context={'users': CrackedUsers.objects.all()})
 
+
 def check_profile_url(profile):
-	if(re.match("^https://facebook.com/.*$",profile) or re.match("^https://instagram.com/.*$",profile) or re.match("^https://github.com/.*$",profile)):
-		return profile
-	else:
-		return ""
+    if (re.match("^https://facebook.com/.*$", profile)
+            or re.match("^https://instagram.com/.*$", profile)
+            or re.match("^https://github.com/.*$", profile)):
+        return profile
+    else:
+        return ""

@@ -10,5 +10,5 @@ pytz==2019.3
 redis==3.2.1
 requests==2.22.0
 sqlparse==0.3.0
-urllib3==1.25.8
+urllib3==1.26.17
 whitenoise==5.0.1
